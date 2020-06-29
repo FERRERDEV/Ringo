@@ -1,3 +1,9 @@
 [submodule "Engine/Third-party/spdlog"]
 	path = Engine/Third-party/spdlog
 	url = https://github.com/FERRERDEV/spdlog.git
+[submodule "Engine/Third-party/glfw"]
+	path = Engine/Third-party/glfw
+	url = https://github.com/FERRERDEV/glfw.git
+[submodule "Engine/Third-party/glad"]
+	path = Engine/Third-party/glad
+	url = https://github.com/FERRERDEV/GLAD.git
