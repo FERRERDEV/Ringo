@@ -1,0 +1,3 @@
+[submodule "Engine/Third-party/spdlog"]
+	path = Engine/Third-party/spdlog
+	url = https://github.com/FERRERDEV/spdlog.git
