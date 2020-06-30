@@ -7,3 +7,6 @@
 [submodule "Engine/Third-party/glad"]
 	path = Engine/Third-party/glad
 	url = https://github.com/FERRERDEV/GLAD.git
+[submodule "Engine/Third-party/glm"]
+	path = Engine/Third-party/glm
+	url = https://github.com/FERRERDEV/glm.git
