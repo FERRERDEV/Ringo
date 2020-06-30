@@ -1,3 +1,4 @@
+#include <rgpch.h>
 #include "Layer.h"
 
 namespace Ringo {

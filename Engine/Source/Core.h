@@ -2,10 +2,14 @@
 
 // Platforms
 #ifdef RG_PLATFORM_WINDOWS
-	#ifdef RG_BUILD_DLL
-		#define RINGO_API __declspec(dllexport)
+	#ifdef RG_LINK_DLL
+		#ifdef RG_BUILD_DLL
+			#define RINGO_API __declspec(dllexport)
+		#else
+			#define RINGO_API __declspec(dllimport)
+		#endif
 	#else
-		#define RINGO_API __declspec(dllimport)
+		#define RINGO_API
 	#endif
 #else
 	#error Ringo only supports Windows!

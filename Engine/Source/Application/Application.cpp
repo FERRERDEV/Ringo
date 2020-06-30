@@ -1,3 +1,4 @@
+#include <rgpch.h>
 #include "Application.h"
 
 namespace Ringo {

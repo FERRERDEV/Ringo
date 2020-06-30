@@ -4,16 +4,17 @@ workspace "Ringo"
 	configurations
 	{
 		"Debug",
-		"Release",
-		"Dist"
+		"Release"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "Ringo"
 	location "Engine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("Engine/Binaries/" .. outputdir )
 	objdir ("Engine/Intermediates/" .. outputdir )
@@ -34,8 +35,6 @@ project "Ringo"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -44,27 +43,20 @@ project "Ringo"
 			"RG_BUILD_DLL"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../Templates/Sandbox/Binaries/" .. outputdir)
-		}
-
 	filter "configurations:Debug"
 		defines "RG_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "RG_RELEASE"
-		optimize "On"
-
-	filter "configurations:Dist"
-		defines "RG_DIST"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Templates/Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("%{prj.location}/Binaries/" .. outputdir)
 	objdir ("%{prj.location}/Intermediates/" .. outputdir)
@@ -87,8 +79,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -98,12 +88,8 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "RG_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "RG_RELEASE"
-		optimize "On"
-
-	filter "configurations:Dist"
-		defines "RG_DIST"
-		optimize "On"
+		optimize "on"
