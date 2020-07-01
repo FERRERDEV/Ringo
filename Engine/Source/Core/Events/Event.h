@@ -1,7 +1,7 @@
 #pragma once
 
 #include "rgpch.h"
-#include "Core.h"
+#include "Core/Core.h"
 
 namespace Ringo {
 

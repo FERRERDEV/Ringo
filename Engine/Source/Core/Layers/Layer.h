@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core.h"
-#include "Events/Event.h"
+#include "Core/Core.h"
+#include "Core/Events/Event.h"
 
 namespace Ringo {
 

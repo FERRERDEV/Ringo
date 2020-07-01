@@ -2,8 +2,9 @@
 
 #include "Core/Application/Window.h"
 
-class RINGO_API EditorWindow : Window
-{
+namespace Ringo {
 
-};
-
+	class RINGO_API EditorWindow : public Window
+	{
+	};
+}
