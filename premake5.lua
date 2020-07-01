@@ -8,6 +8,11 @@ workspace "Ringo"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+thirdpartydir = "Engine/Third-party"
+
+group "Dependencies"
+	include "Engine/Third-party/glfw"
+	include "Engine/Third-party/glad"
 
 project "Ringo"
 	location "Engine"
@@ -16,8 +21,8 @@ project "Ringo"
 	cppdialect "C++17"
 	staticruntime "on"
 
-	targetdir ("Engine/Binaries/" .. outputdir )
-	objdir ("Engine/Intermediates/" .. outputdir )
+	targetdir ( "%{prj.location}/Binaries/" .. outputdir )
+	objdir ( "%{prj.location}/Intermediates/" .. outputdir )
 
 	pchheader "rgpch.h"
 	pchsource "%{prj.location}/Source/rgpch.cpp"
@@ -25,13 +30,24 @@ project "Ringo"
 	files
 	{
 		"%{prj.location}/Source/**.h",
-		"%{prj.location}/Source/**.cpp"
+		"%{prj.location}/Source/**.cpp",
+		"%{thirdpartydir}/glm/glm/**.hpp",
+		"%{thirdpartydir}/glm/glm/**.inl"
 	}
 
 	includedirs
 	{
 		"%{prj.location}/Source",
-		"%{prj.location}/Third-party/spdlog/include"
+		"%{thirdpartydir}/spdlog/include",
+		"%{thirdpartydir}/glm",
+		"%{thirdpartydir}/glfw",
+		"%{thirdpartydir}/glad"
+	}
+
+	links
+	{
+		"glfw",
+		"glad"
 	}
 
 	filter "system:windows"
