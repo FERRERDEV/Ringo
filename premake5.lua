@@ -10,9 +10,8 @@ workspace "Ringo"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 thirdpartydir = "Engine/Third-party"
 
-group "Dependencies"
-	include "Engine/Third-party/glfw"
-	include "Engine/Third-party/glad"
+include "Engine/Third-party/glfw"
+include "Engine/Third-party/glad"
 
 project "Ringo"
 	location "Engine"
@@ -40,14 +39,15 @@ project "Ringo"
 		"%{prj.location}/Source",
 		"%{thirdpartydir}/spdlog/include",
 		"%{thirdpartydir}/glm",
-		"%{thirdpartydir}/glfw",
-		"%{thirdpartydir}/glad"
+		"%{thirdpartydir}/glfw/include",
+		"%{thirdpartydir}/glad/include"
 	}
 
 	links
 	{
-		"glfw",
-		"glad"
+		"GLFW",
+		"GLAD",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

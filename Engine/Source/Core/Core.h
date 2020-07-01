@@ -20,8 +20,8 @@
 #define RG_ASSERT(x, ...) { if(!(x)) { RG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define RG_ENGINE_ASSERT(x, ...) { if(!(x)) { RG_ENGINE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
-#define HZ_ASSERT(x, ...)
-#define HZ_ENGINE_ASSERT(x, ...)
+#define RG_ASSERT(x, ...)
+#define RG_ENGINE_ASSERT(x, ...)
 #endif
 
 // Events bus
